@@ -1,0 +1,5 @@
+Django
+pillow
+django-embed-video
+django-allauth
+python-memcached

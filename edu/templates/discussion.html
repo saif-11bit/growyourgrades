@@ -1,0 +1,72 @@
+{% extends 'base.html' %} {% load static %}
+<!-- css -->
+{% block extra_head %}
+
+<link rel="stylesheet" href="{% static 'css/questions.css' %}" />
+{% endblock %}
+<!-- content -->
+{% block content %}
+<!-- modal -->
+
+<!-- Modal Structure -->
+<div id="askmodal" class="modal">
+  <div class="modal-content">
+    <form id="ask-form" method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      <label for="title">Title</label>
+      {{form.heading}}
+      <!-- <input type="text" name="title" required /> -->
+      <label for="subject">Subject</label>
+      {{form.subject}}
+
+      <!-- <textarea
+        class="materialize-textarea"
+        name="question"
+        cols="30"
+        rows="10"
+      ></textarea> -->
+      {{form.question}}
+      <label for="question">Describe Question</label>
+      <div class="file-field input-field">
+        <div class="btn">
+          <span>Image</span>
+          <!-- <input name="quesImg" type="file" /> -->
+          {{form.ques_img}}
+        </div>
+        <div class="file-path-wrapper">
+          <input class="file-path validate" type="text" />
+        </div>
+      </div>
+
+      <button type="submit">Ask Now</button>
+    </form>
+  </div>
+</div>
+<!--  -->
+<div class="container discussion">
+  <div class="top-heading">
+    <div class="heading">
+      Questions
+    </div>
+    <div class="add-question">
+      <a class="modal-trigger" href="#askmodal"
+        ><i class="material-icons">add</i> Ask Question?</a
+      >
+    </div>
+  </div>
+
+  {% for i in questions %}
+  <div class="discussion-list">
+    <div class="questions">
+      <div class="ques">Ques ></div>
+      <a href="{{i.get_absolute_url}}">
+        <div class="qs-title">
+          {{i.heading}}
+        </div></a
+      >
+    </div>
+    <div class="discuss"><a href="{{i.get_absolute_url}}">Discuss</a></div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

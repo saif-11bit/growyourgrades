@@ -1,0 +1,24 @@
+.signup-panel {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0);
+  align-items: center;
+}
+.join {
+  text-align: center;
+  color: teal;
+  font-size: 2em;
+  font-weight: bold;
+  margin: 10px;
+}
+
+.signup button {
+  border-style: none;
+  background-color: teal;
+  color: white;
+  padding: 1rem;
+  border-radius: 5px;
+  margin-left: 30%;
+}

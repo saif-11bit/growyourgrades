@@ -1,0 +1,75 @@
+Batch 1 : - qstn 3
+
+Consider the following model ,in which the model is a part of daily practice that means everyday these entries should be recorded (there will be a date and time field).
+Working : - each day there will be four sections which need new entries as mentioned in the sqrt,and each sections will have their own subsections as mentioned in the other classes 
+Eg: for depart under sqrt it is having the subsections as mentioned under the class depart.
+And in the each section of the class depart will have multiple task which inherit from the model ‘Task’(there will be more than one task for each subsections of sqrt eg : under depart there are psychology etc under psychology everyday there will be number of task and each task will have a title and a description)’
+
+Qstn : - how you can define the model, urls,views to accomplish this task.there will be a view which will facilitate making new instances for model ‘Task’ through button action.
+
+Hint : - manytomany and one to one you can use any practice that serve the purpose 
+
+
+Class sqrt(model.Model):
+Depart = 
+Write_sqs =
+Commu = 
+Eim = 
+Timeanddate = 
+Revie_choice = (
+
+        (‘COMPLETED’, 'Completed successfully'),
+        ('PENDING', 'PENDING'),
+        ('FAILED', 'FAILED '),
+
+    )
+
+    review_status = models.CharField(choices=review_choice, default='PENDING', max_length=40)
+
+
+
+
+
+
+
+
+class depart(models.Model):
+    psychology =
+    martiall = 
+    domain = 
+    maths =
+    Finance = 
+    language-An =
+    language-Eng = 
+    
+    def __init__(str):
+        return self.
+
+class write_sqs(models.Model):
+    book = 
+    blog = 
+
+    def __init__(str):
+        return self.
+
+  
+class comm_sqs(models.Model):
+    video =
+    Course_v = 
+
+ def __init__(str):
+        return self.
+
+class eim(models.Model):
+    brands  =
+    Farm =
+ def __init__(str):
+        return self.
+    
+class Task(models.Model):
+    task_name = models.CharField(default='Task Name' ,max_length = 100,)
+    task_description = models.CharField(default='Task Description' ,max_length = 100,)
+    
+ def __init__(str):
+        return self.
+

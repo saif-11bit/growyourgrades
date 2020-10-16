@@ -1,0 +1,49 @@
+{% extends 'base.html' %} {% load static %}
+<!-- css -->
+{% block extra_head %}
+
+<link rel="stylesheet" href="{% static 'css/landing.css' %}" />
+{% endblock %}
+<!-- content -->
+{% block content %}
+<div class="landing">
+  <div id="land-text">
+    <div class="land-text">Freedom To Evolve!</div>
+    <div class="land-subtitle">
+      Fully <span style="color: rgb(223, 83, 157)">Free</span> E-learning
+      Platform.
+    </div>
+  </div>
+  <div class="land-image">
+    <img src="{% static 'img/books.svg' %}" alt="" />
+  </div>
+</div>
+<!-- <div class="line"></div> -->
+
+<div class="course-title">
+  Courses Available
+</div>
+
+<div class="courses">
+  {% for i in courses %}
+  <form id="{{i.title}}" method="POST">
+    {% csrf_token %}
+    <div onclick="sub()" class="course z-depth-4">
+      {{i.title}}
+    </div>
+    <input type="hidden" name="course_title" value="{{i.title}}" />
+  </form>
+
+  <script>
+    document
+      .getElementById("{{i.title}}")
+      .addEventListener("click", myFunction);
+
+    function myFunction() {
+      document.getElementById("{{i.title}}").submit();
+    }
+  </script>
+
+  {% endfor %}
+</div>
+{% endblock %}

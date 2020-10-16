@@ -1,0 +1,228 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>GrowYourGrades</title>
+    <link rel="icon" href="{% static 'img/logo.png' %}" />
+    {% block extra_head %} {% endblock %}
+    <!-- icons -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins"
+      rel="stylesheet"
+    />
+    <!-- css -->
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+    <!-- Compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  </head>
+  <body>
+    {% block body %} {% if messages %} {% for message in messages %}
+    <!--  -->
+    <script>
+      var toastHTML =
+        "<span style='color:yellow';align-self:'center'>{{message}}</span>";
+      M.toast({ html: toastHTML, classes: "rounded" });
+    </script>
+    {% endfor %} {% endif %}
+
+    <!-- custom nav -->
+    <div class="nav">
+      <a href="/">
+        <div class="logo">
+          <img src="{% static 'img/logo.png' %}" alt="" />
+          <div class="logo-text hide-on-small-only">GrowYourGrades</div>
+        </div></a
+      >
+      <div class="nav-links hide-on-small-only">
+        {% if user.is_authenticated %} {% if request.user.usercourse != None %}
+        <li><a href="">{{request.user.usercourse}}</a></li>
+        {% endif %}
+        <li><a href="{% url 'account_email' %}">Change E-mail</a></li>
+        <li><a href="{% url 'account_logout' %}">Sign Out</a></li>
+        {% else %}
+        <li><a href="{% url 'account_login' %}">Sign In</a></li>
+        <li><a href="{% url 'account_signup' %}">Sign Up</a></li>
+        {% endif %}
+      </div>
+      <div class="nav-links hide-on-med-and-up">
+        {% if request.user.usercourse != None %}
+        <li><a href="">{{request.user.usercourse}}</a></li>
+        {% endif %}
+        <li>
+          <a class="modal-trigger" href="#modal1"
+            ><i class="small material-icons">menu</i></a
+          >
+        </li>
+      </div>
+    </div>
+
+    <!-- Modal Structure -->
+    <div id="modal1" class="modal mobile-nav bottom-sheet">
+      {% if user.is_authenticated %}
+      <li><a href="/about/">About Us</a></li>
+      <li><a href="tel:9155126422">Call Us</a></li>
+      <li><a href="{% url 'account_email' %}">Change E-mail</a></li>
+      <li><a href="{% url 'account_logout' %}">Sign Out</a></li>
+      {% else %}
+      <li><a href="{% url 'account_login' %}">Sign In</a></li>
+      <li><a href="{% url 'account_signup' %}">Sign Up</a></li>
+      <li><a href="/about/">About Us</a></li>
+      <li><a href="tel:9155126422">Call Us</a></li>
+      {% endif %}
+    </div>
+    <div class="main">
+      {% block content %} {% endblock %}
+    </div>
+    {% endblock %}
+    <!-- extra body -->
+    {% block extra_body %} {% endblock %}
+    <!-- large footer -->
+    <footer class="large-footer hide-on-small-only">
+      <div class="container">
+        <div class="about">
+          <div class="about-title">About</div>
+          <div class="about-content">
+            An e-learning platform started by a team of passionate learners with
+            an aim to develop an environment where everyone has "FREEDOM TO
+            EVOLVE". We provide 1-1 interactive doubt sessions. Our vision is to
+            build a RESULT-ORIENTED youth. Join Us Now and be a part of an
+            innovative pedagogy.
+          </div>
+        </div>
+        <div class="hr-line"></div>
+        <div class="about">
+          <div class="about-title">Connect With Us</div>
+          <div class="connect">
+            <div class="social-link">
+              <div>
+                <a
+                  href="https://instagram.com/growyourgrades?igshid=13kb02mpwf7np"
+                  target="_blank"
+                  ><img src="{% static 'img/instagram.png' %}" alt=""
+                /></a>
+              </div>
+              Instagram
+            </div>
+            <div class="social-link">
+              <div>
+                <a
+                  href="https://mail.google.com/mail/?view=cm&fs=1&to=growyourgrades@gmail.com"
+                  target="_blank"
+                  ><img src="{% static 'img/gmail.png' %}" alt=""
+                /></a>
+              </div>
+              Gmail
+            </div>
+            <!-- <div class="social-link">
+              <div>
+                <a href=""
+                  ><img src="{% static 'img/facebook.png' %}" alt=""
+                /></a>
+              </div>
+              Facebook
+            </div> -->
+            <div class="social-link">
+              <div>
+                <a
+                  href="https://www.youtube.com/channel/UC9WnHPAbad2q6fImVzYwJeQ"
+                  target="_blank"
+                  ><img src="{% static 'img/youtube.png' %}" alt=""
+                /></a>
+              </div>
+              Youtube
+            </div>
+            <!-- <div class="social-link">
+              <div>
+                <a href=""
+                  ><img src="{% static 'img/linkedin.png' %}" alt=""
+                /></a>
+              </div>
+              LinkedIn
+            </div> -->
+            <div class="social-link">
+              <div>
+                <a href="https://pin.it/67rKmk9" target="_blank"
+                  ><img src="{% static 'img/pinterest.png' %}" alt=""
+                /></a>
+              </div>
+              Pinterest
+            </div>
+            <div class="social-link">
+              <div>
+                <a
+                  href="https://twitter.com/Growyourgrades?s=20"
+                  target="_blank"
+                  ><img src="{% static 'img/twitter.png' %}" alt=""
+                /></a>
+              </div>
+              Twitter
+            </div>
+          </div>
+        </div>
+        <div class="hr-line"></div>
+        <div class="about-title">Contact Us</div>
+        <div class="contact">
+          <div class="phone">
+            <i class="material-icons">local_phone</i>
+            : 9155126422
+          </div>
+          <div class="address">
+            <i class="material-icons">location_on</i>
+            : Bachpan Play School,Choti Badalpura,Khagaul,Patna-801105
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- mobile footer -->
+    <footer class="mob-footer hide-on-med-and-up fixed">
+      {% if user.is_authenticated %}
+      <div class="foot-nav">
+        <a href="/"><i class="small material-icons">home</i> Home</a>
+      </div>
+      <div class="foot-nav">
+        <a href="/live/">
+          <i class="small material-icons">live_tv</i>
+          Live
+        </a>
+      </div>
+      <div class="foot-nav">
+        <a href="/videos/">
+          <i class="small material-icons">play_circle_filled</i>
+          Videos
+        </a>
+      </div>
+      <div class="foot-nav">
+        <a href="/questions/">
+          <i class="small material-icons">forum</i>
+          Discussion
+        </a>
+      </div>
+      {% else %}
+      <div class="foot-nav-login">
+        <a href="{% url 'account_login' %}">Proceed To Login</a>
+      </div>
+      {% endif %}
+    </footer>
+
+    <!-- js -->
+    <script type="text/javascript">
+      M.AutoInit();
+    </script>
+    <script src="{% static 'js/jquery-3.1.1.min.js' %}"></script>
+    <script src="{% static 'js/jquery.waypoints.min.js' %}"></script>
+    <script src="{% static 'js/infinite.min.js' %}"></script>
+  </body>
+</html>

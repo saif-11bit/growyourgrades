@@ -1,0 +1,26 @@
+.lessons {
+  /* height: 85vh; */
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+}
+
+.collapsible-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.collapsible-body a {
+  display: flex;
+  justify-content: center;
+  color: white;
+  padding: 10px;
+  background-color: rgba(0, 0, 255, 0.794);
+  border-radius: 5px;
+  font-size: 1.2rem;
+}
+.video-url {
+  display: flex;
+  justify-content: center;
+}

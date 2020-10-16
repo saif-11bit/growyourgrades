@@ -1,0 +1,17 @@
+{% extends 'base.html' %} {% load static %}
+<!-- css -->
+{% block extra_head %}
+
+<link rel="stylesheet" href="{% static 'css/lesson-list.css' %}" />
+{% endblock %}
+<!-- content -->
+{% block content %}
+<!--  -->
+<div class="lesson-list">
+  {% for i in subject.lessons %}
+  <div class="lesson">
+    <a href="{{i.get_absolute_url}}" class="z-depth-4"> {{i.title}}</a>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends 'base.html' %} {% load static %}
+<!-- css -->
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'css/about.css' %}" />
+{% endblock %}
+
+<!-- content -->
+{% block content %}
+<div class="about-mobile">
+  <div class="title">About Us</div>
+  <div class="content">
+    An e-learning platform started by a team of passionate learners with an aim
+    to develop an environment where everyone has "FREEDOM TO EVOLVE". We provide
+    1-1 interactive doubt sessions. Our vision is to build a RESULT-ORIENTED
+    youth. Join Us Now and be a part of an innovative pedagogy.
+  </div>
+  <div class="title">Connect With Us</div>
+  <div class="social-links">
+    <div class="social">
+      <img src="{% static 'img/instagram.png' %}" alt="" />
+    </div>
+    <div class="social">
+      <img src="{% static 'img/gmail.png' %}" alt="" />
+    </div>
+    <div class="social">
+      <img src="{% static 'img/youtube.png' %}" alt="" />
+    </div>
+    <div class="social">
+      <img src="{% static 'img/pinterest.png' %}" alt="" />
+    </div>
+    <div class="social">
+      <img src="{% static 'img/twitter.png' %}" alt="" />
+    </div>
+  </div>
+  <div class="title">Address</div>
+  <div class="map">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3598.7269155693216!2d85.04660265020114!3d25.580750683639263!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ed57504d0ff6d7%3A0xda8324131daf2aa7!2sChhoti%20badalpura%20behind%20railway%20school!5e0!3m2!1sen!2sin!4v1602176977046!5m2!1sen!2sin"
+      width="600"
+      height="450"
+      frameborder="0"
+      style="border:0;"
+      allowfullscreen=""
+      aria-hidden="false"
+      tabindex="0"
+    ></iframe>
+  </div>
+</div>
+{% endblock %}

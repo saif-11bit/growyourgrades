@@ -1,0 +1,33 @@
+{% extends 'base.html' %} {% load static %}
+<!-- css -->
+{% block extra_head %}
+
+<link rel="stylesheet" href="{% static 'css/home.css' %}" />
+{% endblock %}
+<!-- content -->
+{% block content %}
+<!--  -->
+<div class="home">
+  <div class="subjects ">
+    <a href="{{selected_course.get_absolute_url}}" class="z-depth-4">
+      SUBJECTS
+    </a>
+  </div>
+
+  <div class="subjects">
+    <a href="{{selected_course.get_live_url}}" class="z-depth-4">
+      Live Class
+    </a>
+  </div>
+
+  <div class="subjects">
+    <a href="/questions/" class="z-depth-4">
+      Discussion
+    </a>
+  </div>
+
+  <div class="subjects">
+    <a href="/courses/" class="z-depth-4"> Courses</a>
+  </div>
+</div>
+{% endblock %}

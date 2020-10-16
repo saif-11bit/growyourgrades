@@ -1,0 +1,28 @@
+.about-mobile {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  align-items: center;
+}
+.title {
+  font-size: 2rem;
+  margin: 1rem;
+}
+
+.content {
+  font-size: 1.3rem;
+  align-items: center;
+  margin: 1rem;
+}
+.social-links {
+  display: flex;
+}
+.social {
+  padding: 20px;
+}
+.addr {
+  display: flex;
+}
+.map iframe {
+  width: 100vw;
+}

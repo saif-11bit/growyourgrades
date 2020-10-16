@@ -1,0 +1,27 @@
+.videos {
+  margin: 10px;
+}
+.col {
+  padding: 1px;
+}
+.video-title {
+  color: black;
+}
+.notes a {
+  display: flex;
+  justify-content: center;
+  color: white;
+  padding: 10px;
+  background-color: rgba(0, 0, 255, 0.794);
+  border-radius: 5px;
+  font-size: 1.2rem;
+  margin: 10px;
+}
+.modal-content {
+  display: flex;
+  justify-content: center;
+}
+.infinite-more-link{
+  display: flex;
+  justify-content: center
+}

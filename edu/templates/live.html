@@ -1,0 +1,36 @@
+{% extends 'base.html' %} {% load static %}
+<!-- css -->
+{% block extra_head %}
+
+<link rel="stylesheet" href="{% static 'css/live.css' %}" />
+{% endblock %}
+<!-- content -->
+{% block content %}
+<div class="live-session">
+  <!--  -->
+  <div class="live-heading">
+    <div class="heading">Today's Live Sessions</div>
+    <div class="info">
+      Please install zoom app to join live class for free!!!
+    </div>
+  </div>
+  <div class="todays-live">
+    {% for i in live %}
+    <a href="{{i.link}}">
+      <div class="live-card z-depth-3">
+        <img src="{{i.thumbnail.url}}" alt="" />
+        <div class="live-title">
+          {{i.title}}
+        </div>
+        <div class="timing">
+          <div class="start">
+            From:<span class="time">{{i.from_time}}</span>
+          </div>
+          <div class="end">To:<span class="time">{{i.to_time}}</span></div>
+        </div>
+      </div></a
+    >
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends 'base.html' %} {% load static %}{% load embed_video_tags %}
+<!-- css -->
+{% block extra_head %}
+<!-- content -->
+<link rel="stylesheet" href="{% static 'css/videos.css' %}" />
+{% endblock %} {% block content %}
+<!--  -->
+
+<!-- video modal -->
+<!-- Modal Structure -->
+
+<div class="videos infinite-container">
+  <div class="row">
+    {% for i in videos %}
+    <div id="{{i.title}}" class="modal">
+      <div class="modal-content">
+        {% video i.video 'medium' %}
+      </div>
+      <div class="notes">
+        {% if i.notes_file %}
+        <a href="{{i.notes_file.url}}" target="_blank">Download Notes</a>
+        {% endif %}
+      </div>
+    </div>
+    <div class="col l3 m4 s12">
+      <a class="modal-trigger" href="#{{i.title}}">
+        <div class="img">
+          <img src="{{i.thumbnail.url}}" width="100%" alt="" />
+        </div>
+        <div class="video-title">
+          {{i.title}}
+        </div>
+      </a>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% if videos.has_next %}
+<a class="infinite-more-link" href="?page={{ videos.next_page_number }}"
+  >More</a
+>
+{% endif %}
+<div class="loading" style="display: none;">
+  Loading...
+</div>
+<script>
+  var infinite = new Waypoint.Infinite({
+    element: $(".infinite-container")[0],
+    onBeforePageLoad: function() {
+      $(".loading").show();
+    },
+    onAfterPageLoad: function($items) {
+      $(".loading").hide();
+    }
+  });
+</script>
+{% endblock %}

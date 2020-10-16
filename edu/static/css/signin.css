@@ -1,0 +1,37 @@
+.signin-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0);
+}
+.join {
+  text-align: center;
+  color: teal;
+  font-size: 2em;
+  font-weight: bold;
+  margin: 10px;
+}
+
+.login button {
+  border-style: none;
+  background-color: teal;
+  color: white;
+  padding: 1rem;
+  border-radius: 5px;
+  margin-left: 30%;
+}
+
+li {
+  list-style: none;
+}
+
+.social-login {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.google {
+  font-weight: bold;
+  font-size: 1.2em;
+}

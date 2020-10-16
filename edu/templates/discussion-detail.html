@@ -1,0 +1,68 @@
+{% extends 'base.html' %} {% load static %}
+<!-- css -->
+{% block extra_head %}
+
+<link rel="stylesheet" href="{% static 'css/discussion.css' %}" />
+{% endblock %}
+<!-- content -->
+{% block content %}
+
+<!-- answer -->
+<div id="answer-modal" class="modal">
+  <div class="modal-content">
+    <form method="POST">
+      {% csrf_token %}
+      <textarea
+        class="materialize-textarea"
+        name="answer-name"
+        cols="30"
+        rows="10"
+      ></textarea>
+      <label for="answer-name">Answer</label>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+</div>
+<!--  -->
+<div class="discuss">
+  <div class="discussion-detail">
+    <div class="question">
+      <div class="heading">{{question.heading}}</div>
+    </div>
+    <div class="question-detail">
+      {% if question.ques_img %}
+      <img src="{{question.ques_img.url}}" width="100%" alt="" />
+      {% endif %} {{question.question}}
+    </div>
+  </div>
+  <div class="answer-detail">
+    <div class="answer">
+      Answers:
+      <div class="add-ans">
+        <a class="btn modal-trigger" href="#answer-modal">
+          <i class="material-icons">add</i>
+          Add Answer
+        </a>
+      </div>
+    </div>
+    <div class="answers">
+      {% for answer in question.answers %}
+      <div class="new-answer">
+        {% if answer.answer_by.is_staff == True%}
+        <!--  -->
+        Ans_by:@<span
+          >{{answer.answer_by}}<i class="tiny material-icons blue-text"
+            >check_circle</i
+          ></span
+        >> {{answer.answer}}
+        <!--  -->
+        {% else %}
+        <!--  -->
+        Ans_by:@{{answer.answer_by}}> {{answer.answer}} {% endif %}
+      </div>
+
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endblock %}

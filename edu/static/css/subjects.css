@@ -1,0 +1,27 @@
+.sub a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background-color: rgba(0, 0, 255, 0.794);
+  color: white;
+  margin-left: 100px;
+  margin-right: 100px;
+  margin-top: 50px;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.subjects {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 85vh;
+  margin-bottom: 40px;
+}
+
+/* @media (min-width: 650px) {
+    .home {
+      height: 85vh;
+    }
+  } */

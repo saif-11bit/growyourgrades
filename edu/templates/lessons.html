@@ -1,0 +1,41 @@
+{% extends 'base.html' %} {% load static %}{% load embed_video_tags %}
+<!-- css -->
+{% block extra_head %}
+
+<link rel="stylesheet" href="{% static 'css/lessons.css' %}" />
+{% endblock %}
+<!-- content -->
+{% block content %}
+<!--  -->
+<div class="lessons">
+  <div class="container">
+    <ul class="collapsible">
+      {% for i in lesson.lesson_parts %}
+      <li>
+        <div class="collapsible-header">
+          <i class="material-icons">ondemand_video</i>{{i.title}}
+        </div>
+        <div class="collapsible-body">
+          <div class="video-url">
+            {% video i.video 'medium' %}
+          </div>
+          <div class="notes">
+            {% if i.notes_file %}
+            <a href="{{i.notes_file.url}}" target="_blank">Download Notes</a>
+
+            {% endif %}
+          </div>
+        </div>
+      </li>
+      {% empty %}
+      <div
+        style="display: flex;justify-content: center;align-items: center;font-size: 2rem"
+      >
+        Videos will be available soon....
+      </div>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+
+{% endblock %}
